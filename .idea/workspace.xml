@@ -1,7 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="aad6284f-f0d6-4fde-843a-f5d4fa106923" name="Default Changelist" comment="" />
+    <list default="true" id="aad6284f-f0d6-4fde-843a-f5d4fa106923" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/src/GUI/startupscherm.form" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/GUI/startupscherm.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/uiDesigner.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -25,6 +30,7 @@
     <property name="UI_DESIGNER_EDITOR_MODE.UIDesignerToolWindowManager.WIDTH" value="290" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -35,6 +41,11 @@
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.0" />
     <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
+  </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/GUI" />
+    </key>
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -79,8 +90,13 @@
       <option name="presentableId" value="Default" />
       <updated>1573730738887</updated>
       <workItem from="1573730740471" duration="1761000" />
+<<<<<<< Updated upstream
       <workItem from="1574249217200" duration="5737000" />
       <workItem from="1574333845802" duration="427000" />
+=======
+      <workItem from="1574249217200" duration="1173000" />
+      <workItem from="1574327986959" duration="6539000" />
+>>>>>>> Stashed changes
     </task>
     <servers />
   </component>
