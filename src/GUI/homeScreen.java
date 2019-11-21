@@ -2,6 +2,8 @@ package GUI;
 
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.awt.event.ComponentAdapter;
 import java.awt.event.ComponentEvent;
 
@@ -13,6 +15,7 @@ public class homeScreen {
     private JLabel homeText;
     private JLabel subTitleText;
     private JButton dagelijksVerbruikButton;
+
 
     public static void main(String[] args) {
         //creating new Jframe
