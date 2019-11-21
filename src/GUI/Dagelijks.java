@@ -7,20 +7,10 @@ import java.awt.event.ActionListener;
 import java.awt.event.ComponentAdapter;
 import java.awt.event.ComponentEvent;
 
-public class Dagelijks {
-    private JPanel Dagelijksview;
+public class Dagelijks extends JFrame {
+    public JPanel Dagelijksview;
     private JButton button1;
     private JButton instellingenButton;
-
-
-    public Dagelijks() {
-        button1.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent actionEvent) {
-
-            }
-        });
-    }
 
     public static void main(String[] args) {
         JFrame frame = new JFrame ("Dagelijks");
