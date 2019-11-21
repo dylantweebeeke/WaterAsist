@@ -7,26 +7,27 @@ import java.awt.event.ActionListener;
 import java.awt.event.ComponentAdapter;
 import java.awt.event.ComponentEvent;
 
-public class homeScreen {
-    private  JLabel greetingText;
-    private JButton wekelijksButton;
-    private JButton maandelijksButton;
-    private JPanel homeView;
-    private JLabel homeText;
-    private JLabel subTitleText;
-    private JButton dagelijksVerbruikButton;
+public class Dagelijks {
+    private JPanel Dagelijksview;
+    private JButton button1;
+    private JButton instellingenButton;
 
+
+    public Dagelijks() {
+        button1.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent actionEvent) {
+
+            }
+        });
+    }
 
     public static void main(String[] args) {
-        //creating new Jframe
-        JFrame frame = new JFrame("Homescreen");
-        frame.setContentPane(new homeScreen().homeView);
-
-        //Making the window able to close
+        JFrame frame = new JFrame ("Dagelijks");
+        frame.setContentPane(new Dagelijks().Dagelijksview);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.pack();
 
-        //defining minimum and maximum size of the windwow.
         frame.setMaximumSize(new Dimension(440,500));
         frame.addComponentListener(new ComponentAdapter() {
             public void componentResized(ComponentEvent evt) {
@@ -41,7 +42,8 @@ public class homeScreen {
             }
         });
         frame.setSize(400, 500);
-        //setting the frame to be visible
+
         frame.setVisible(true);
     }
 }
+
