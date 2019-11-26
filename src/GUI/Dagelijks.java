@@ -9,8 +9,21 @@ import java.awt.event.ComponentEvent;
 
 public class Dagelijks extends JFrame {
     public JPanel Dagelijksview;
-    private JButton button1;
+    private JButton homeButton;
     private JButton instellingenButton;
+
+    public Dagelijks() {
+        homeButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                Component component = (Component) e.getSource();
+                JFrame frame = (JFrame) SwingUtilities.getRoot(component);
+                frame.setContentPane(new homeScreen().homeView);
+                frame.setVisible(true);
+                System.out.println("New window opened!");
+            }
+        });
+    }
 
     public static void main(String[] args) {
         JFrame frame = new JFrame ("Dagelijks");
