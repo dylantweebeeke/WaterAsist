@@ -5,10 +5,10 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 public class RegisterScreen extends  JFrame {
-    private JPanel RegisterPanel;
-    private JTextField textField1;
-    private JTextField textField2;
-    private JButton registerenButton;
+    public JPanel RegisterPanel;
+    private JTextField UsernameField;
+    private JButton LoginButton;
+    private JTextField MailField;
 
     public static void main(String args[]) throws ClassNotFoundException, UnsupportedLookAndFeelException, InstantiationException, IllegalAccessException {
         UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
