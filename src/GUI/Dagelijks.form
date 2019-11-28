@@ -11,20 +11,20 @@
     </properties>
     <border type="none"/>
     <children>
-      <component id="7f6ff" class="javax.swing.JButton" binding="homeButton">
+      <component id="7f6ff" class="javax.swing.JButton" binding="homeButton" custom-create="true">
         <constraints>
           <grid row="0" column="0" row-span="2" col-span="1" vsize-policy="0" hsize-policy="3" anchor="1" fill="1" indent="0" use-parent-layout="false"/>
         </constraints>
         <properties>
-          <text value="Home"/>
+          <text value=""/>
         </properties>
       </component>
-      <component id="241a8" class="javax.swing.JButton" binding="instellingenButton" default-binding="true">
+      <component id="241a8" class="javax.swing.JButton" binding="instellingenButton" custom-create="true" default-binding="true">
         <constraints>
           <grid row="0" column="4" row-span="2" col-span="1" vsize-policy="0" hsize-policy="3" anchor="1" fill="1" indent="0" use-parent-layout="false"/>
         </constraints>
         <properties>
-          <text value="Instellingen"/>
+          <text value=""/>
         </properties>
       </component>
       <component id="549b3" class="javax.swing.JLabel">

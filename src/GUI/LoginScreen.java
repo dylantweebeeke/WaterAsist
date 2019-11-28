@@ -60,4 +60,17 @@ public class LoginScreen {
         frame.setSize(1100, 1100);
         frame.setVisible(true);
     }
+
+    private void createUIComponents() {
+        //same for home button
+        ImageIcon iiBack = new ImageIcon("img/backButton.png");
+        Image imgBack = iiBack.getImage();
+        Image newImgBack = imgBack.getScaledInstance(50,50, Image.SCALE_SMOOTH);
+        iiBack = new ImageIcon(newImgBack);
+        backButton = new JButton(iiBack);
+        // deleting background color and border
+        backButton.setBackground(new Color(0,0,0,0));
+        backButton.setBorder(BorderFactory.createEmptyBorder(4,4,4,4));
+        backButton.setContentAreaFilled(false);
+    }
 }

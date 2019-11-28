@@ -93,17 +93,15 @@ public class homeScreen extends JFrame {
     }
 
     private void createUIComponents() {
-        //loading/resizing/linking image to an button
-        ImageIcon ii = new ImageIcon("img/settingsLogo.png");
-        Image img = ii.getImage();
-        Image newImg = img.getScaledInstance(50,50, Image.SCALE_SMOOTH);
-        ii = new ImageIcon(newImg);
-        settingsButton = new JButton(ii);
-
-        //
+        //loading/resizing/linking image to an buttons
+        ImageIcon iiSettings = new ImageIcon("img/settingsLogo.png");
+        Image imgSettings = iiSettings.getImage();
+        Image newImgSettings = imgSettings.getScaledInstance(50,50, Image.SCALE_SMOOTH);
+        iiSettings = new ImageIcon(newImgSettings);
+        settingsButton = new JButton(iiSettings);
+        // deleting background color and border
         settingsButton.setBackground(new Color(0,0,0,0));
         settingsButton.setBorder(BorderFactory.createEmptyBorder(4,4,4,4));
         settingsButton.setContentAreaFilled(false);
-
     }
 }

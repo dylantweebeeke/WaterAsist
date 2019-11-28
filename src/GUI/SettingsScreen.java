@@ -66,4 +66,17 @@ public class SettingsScreen {
         frame.setVisible(true);
 
     }
+
+    private void createUIComponents() {
+        //same for home button
+        ImageIcon iiHome = new ImageIcon("img/homeButton.png");
+        Image imgHome = iiHome.getImage();
+        Image newImgHome = imgHome.getScaledInstance(50,50, Image.SCALE_SMOOTH);
+        iiHome = new ImageIcon(newImgHome);
+        HomeButton = new JButton(iiHome);
+        // deleting background color and border
+        HomeButton.setBackground(new Color(0,0,0,0));
+        HomeButton.setBorder(BorderFactory.createEmptyBorder(4,4,4,4));
+        HomeButton.setContentAreaFilled(false);
+    }
 }
