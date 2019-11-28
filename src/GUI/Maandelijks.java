@@ -55,7 +55,7 @@ public class Maandelijks extends JFrame{
                 }
             }
         });
-        frame.setSize(400, 500);
+        frame.setSize(1100, 1100);
 
         frame.setVisible(true);
     }

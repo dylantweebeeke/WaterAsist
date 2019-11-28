@@ -4,6 +4,8 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.ComponentAdapter;
+import java.awt.event.ComponentEvent;
 
 public class SettingsScreen {
     private JTextField UsernameField;
@@ -45,6 +47,22 @@ public class SettingsScreen {
         frame.setContentPane(new SettingsScreen().SettingsPanel);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.pack();
+
+        frame.setMaximumSize(new Dimension(440,500));
+        frame.addComponentListener(new ComponentAdapter() {
+            public void componentResized(ComponentEvent evt) {
+                Dimension size = frame.getSize();
+                Dimension min = frame.getMinimumSize();
+                if (size.getWidth() < min.getWidth()) {
+                    frame.setSize((int) min.getWidth(), (int) size.getHeight());
+                }
+                if (size.getHeight() < min.getHeight()) {
+                    frame.setSize((int) size.getWidth(), (int) min.getHeight());
+                }
+            }
+        });
+        frame.setSize(1100, 1100);
+
         frame.setVisible(true);
 
     }
