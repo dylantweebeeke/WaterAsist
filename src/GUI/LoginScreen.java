@@ -11,6 +11,7 @@ public class LoginScreen {
     public JPanel LoginPanel;
     private JTextField usernameTextfield;
     private JButton loginButton;
+    private JButton backButton;
 
 
     public LoginScreen() {
@@ -24,6 +25,16 @@ public class LoginScreen {
                     frame.setVisible(true);
                     System.out.println("New window opened!");
                 }
+            }
+        });
+        backButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                Component component = (Component) e.getSource();
+                JFrame frame = (JFrame) SwingUtilities.getRoot(component);
+                frame.setContentPane(new startupscherm().startupView);
+                frame.setVisible(true);
+                System.out.println("New window opened!");
             }
         });
     }
