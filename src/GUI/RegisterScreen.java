@@ -11,7 +11,6 @@ public class RegisterScreen extends  JFrame {
     private JTextField MailField;
 
     public static void main(String args[]) throws ClassNotFoundException, UnsupportedLookAndFeelException, InstantiationException, IllegalAccessException {
-        UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
         JFrame frame = new JFrame("Register");
         frame.setContentPane(new RegisterScreen().RegisterPanel);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);

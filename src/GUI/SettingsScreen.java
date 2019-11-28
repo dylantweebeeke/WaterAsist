@@ -13,7 +13,6 @@ public class SettingsScreen {
     private JButton saveButton;
 
     public static void main(String args[]) throws ClassNotFoundException, UnsupportedLookAndFeelException, InstantiationException, IllegalAccessException {
-        UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
         JFrame frame = new JFrame("Settings");
         frame.setContentPane(new SettingsScreen().SettingsPanel);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
