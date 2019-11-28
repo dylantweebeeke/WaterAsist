@@ -14,6 +14,7 @@ public class SettingsScreen {
     private JTextField MaandelijksField;
     public JPanel SettingsPanel;
     private JButton saveButton;
+    private JButton logUitButton;
 
     public SettingsScreen() {
         HomeButton.addActionListener(new ActionListener() {
@@ -22,6 +23,17 @@ public class SettingsScreen {
                 Component component = (Component) e.getSource();
                 JFrame frame = (JFrame) SwingUtilities.getRoot(component);
                 frame.setContentPane(new homeScreen().homeView);
+                frame.setVisible(true);
+                System.out.println("New window opened!");
+            }
+        });
+
+        logUitButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                Component component = (Component) e.getSource();
+                JFrame frame = (JFrame) SwingUtilities.getRoot(component);
+                frame.setContentPane(new startupscherm().startupView);
                 frame.setVisible(true);
                 System.out.println("New window opened!");
             }

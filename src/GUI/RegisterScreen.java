@@ -12,6 +12,7 @@ public class RegisterScreen extends  JFrame {
     private JTextField UsernameField;
     private JButton RegisterButton;
     private JTextField MailField;
+    private JButton terugButton;
 
     public RegisterScreen() {
         RegisterButton.addActionListener(new ActionListener() {
@@ -20,6 +21,17 @@ public class RegisterScreen extends  JFrame {
                 Component component = (Component) e.getSource();
                 JFrame frame = (JFrame) SwingUtilities.getRoot(component);
                 frame.setContentPane(new homeScreen().homeView);
+                frame.setVisible(true);
+                System.out.println("New window opened!");
+            }
+        });
+
+        terugButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                Component component = (Component) e.getSource();
+                JFrame frame = (JFrame) SwingUtilities.getRoot(component);
+                frame.setContentPane(new startupscherm().startupView);
                 frame.setVisible(true);
                 System.out.println("New window opened!");
             }
