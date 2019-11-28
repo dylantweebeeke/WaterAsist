@@ -100,7 +100,7 @@ public class homeScreen extends JFrame {
         ii = new ImageIcon(newImg);
         settingsButton = new JButton(ii);
 
-        //no opacity background and remove border
+        //
         settingsButton.setBackground(new Color(0,0,0,0));
         settingsButton.setBorder(BorderFactory.createEmptyBorder(4,4,4,4));
         settingsButton.setContentAreaFilled(false);
