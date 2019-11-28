@@ -57,7 +57,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Application.Maandelijks">
+  <component name="RunManager" selected="Application.homeScreen">
     <configuration name="Dagelijks" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="GUI.Dagelijks" />
       <module name="waterAssist" />
@@ -125,10 +125,10 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.homeScreen" />
         <item itemvalue="Application.Maandelijks" />
         <item itemvalue="Application.Wekelijks" />
         <item itemvalue="Application.Dagelijks" />
-        <item itemvalue="Application.homeScreen" />
         <item itemvalue="Application.RegisterScreen" />
       </list>
     </recent_temporary>
