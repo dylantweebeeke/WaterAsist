@@ -2,17 +2,32 @@ package GUI;
 
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.awt.event.ComponentAdapter;
 import java.awt.event.ComponentEvent;
 
-public class homeScreen {
+public class homeScreen extends JFrame {
     private  JLabel greetingText;
     private JButton wekelijksButton;
     private JButton maandelijksButton;
-    private JPanel homeView;
+    public JPanel homeView;
     private JLabel homeText;
     private JLabel subTitleText;
     private JButton dagelijksVerbruikButton;
+
+    public homeScreen() {
+        dagelijksVerbruikButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                Component component = (Component) e.getSource();
+                JFrame frame = (JFrame) SwingUtilities.getRoot(component);
+                frame.setContentPane(new Dagelijks().Dagelijksview);
+                frame.setVisible(true);
+                System.out.println("New window opened!");
+            }
+        });
+    }
 
     public static void main(String[] args) {
         //creating new Jframe
@@ -23,7 +38,7 @@ public class homeScreen {
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.pack();
 
-        //defining minimum and maximum size of the windwow.
+        //defining minimum and maximum size of the window
         frame.setMaximumSize(new Dimension(440,500));
         frame.addComponentListener(new ComponentAdapter() {
             public void componentResized(ComponentEvent evt) {
@@ -41,4 +56,5 @@ public class homeScreen {
         //setting the frame to be visible
         frame.setVisible(true);
     }
+
 }
