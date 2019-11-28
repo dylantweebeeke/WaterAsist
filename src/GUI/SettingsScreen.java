@@ -78,5 +78,16 @@ public class SettingsScreen {
         HomeButton.setBackground(new Color(0,0,0,0));
         HomeButton.setBorder(BorderFactory.createEmptyBorder(4,4,4,4));
         HomeButton.setContentAreaFilled(false);
+
+        //same for logout
+        ImageIcon iiLogOut = new ImageIcon("img/logOutButton.png");
+        Image imgLogOut = iiLogOut.getImage();
+        Image newImgLogOut = imgLogOut.getScaledInstance(50,50, Image.SCALE_SMOOTH);
+        iiLogOut = new ImageIcon(newImgLogOut);
+        logUitButton = new JButton(iiLogOut);
+        // deleting background color and border
+        logUitButton.setBackground(new Color(0,0,0,0));
+        logUitButton.setBorder(BorderFactory.createEmptyBorder(4,4,4,4));
+        logUitButton.setContentAreaFilled(false);
     }
 }

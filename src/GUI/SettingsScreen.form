@@ -145,13 +145,13 @@
           <text value="Instellingen"/>
         </properties>
       </component>
-      <component id="de645" class="javax.swing.JButton" binding="logUitButton" default-binding="true">
+      <component id="de645" class="javax.swing.JButton" binding="logUitButton" custom-create="true" default-binding="true">
         <constraints>
           <grid row="0" column="3" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="4" fill="2" indent="0" use-parent-layout="false"/>
         </constraints>
         <properties>
           <font size="16" style="1"/>
-          <text value="Log uit"/>
+          <text value=""/>
         </properties>
       </component>
     </children>

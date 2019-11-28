@@ -12,6 +12,7 @@ public class startupscherm {
     public JPanel startupView;
     private JButton loginButton;
     private JButton registerButton;
+    private JLabel logoField;
     private JTextArea productName;
 
     public startupscherm() {
@@ -66,4 +67,14 @@ public class startupscherm {
         frame.setVisible(true);
     }
 
+    private void createUIComponents() {
+        //same for home button
+        ImageIcon iiLogo = new ImageIcon("img/tempLogo.png");
+        Image imgLogo = iiLogo.getImage();
+        Image newImgLogo = imgLogo.getScaledInstance(500,500, Image.SCALE_SMOOTH);
+        iiLogo = new ImageIcon(newImgLogo);
+
+        logoField = new JLabel(iiLogo);
+
+    }
 }
