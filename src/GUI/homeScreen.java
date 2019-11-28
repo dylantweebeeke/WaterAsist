@@ -1,6 +1,8 @@
 package GUI;
 
 import javax.swing.*;
+import javax.swing.border.Border;
+import javax.swing.border.EmptyBorder;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -8,13 +10,13 @@ import java.awt.event.ComponentAdapter;
 import java.awt.event.ComponentEvent;
 
 public class homeScreen extends JFrame {
-    private  JLabel greetingText;
     private JButton wekelijksButton;
     private JButton maandelijksButton;
     public JPanel homeView;
     private JLabel homeText;
     private JLabel subTitleText;
     private JButton dagelijksVerbruikButton;
+    private JButton settingsButton;
 
     public homeScreen() {
         dagelijksVerbruikButton.addActionListener(new ActionListener() {
@@ -23,6 +25,39 @@ public class homeScreen extends JFrame {
                 Component component = (Component) e.getSource();
                 JFrame frame = (JFrame) SwingUtilities.getRoot(component);
                 frame.setContentPane(new Dagelijks().Dagelijksview);
+                frame.setVisible(true);
+                System.out.println("New window opened!");
+            }
+        });
+
+        wekelijksButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                Component component = (Component) e.getSource();
+                JFrame frame = (JFrame) SwingUtilities.getRoot(component);
+                frame.setContentPane(new Wekelijks().Wekelijksview);
+                frame.setVisible(true);
+                System.out.println("New window opened!");
+            }
+        });
+
+        maandelijksButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                Component component = (Component) e.getSource();
+                JFrame frame = (JFrame) SwingUtilities.getRoot(component);
+                frame.setContentPane(new Maandelijks().Maandelijksview);
+                frame.setVisible(true);
+                System.out.println("New window opened!");
+            }
+        });
+
+        settingsButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                Component component = (Component) e.getSource();
+                JFrame frame = (JFrame) SwingUtilities.getRoot(component);
+                frame.setContentPane(new SettingsScreen().SettingsPanel);
                 frame.setVisible(true);
                 System.out.println("New window opened!");
             }
@@ -52,9 +87,23 @@ public class homeScreen extends JFrame {
                 }
             }
         });
-        frame.setSize(400, 500);
+        frame.setSize(1100, 1100);
         //setting the frame to be visible
         frame.setVisible(true);
     }
 
+    private void createUIComponents() {
+        //loading/resizing/linking image to an button
+        ImageIcon ii = new ImageIcon("img/settingsLogo.png");
+        Image img = ii.getImage();
+        Image newImg = img.getScaledInstance(50,50, Image.SCALE_SMOOTH);
+        ii = new ImageIcon(newImg);
+        settingsButton = new JButton(ii);
+
+        //
+        settingsButton.setBackground(new Color(0,0,0,0));
+        settingsButton.setBorder(BorderFactory.createEmptyBorder(4,4,4,4));
+        settingsButton.setContentAreaFilled(false);
+
+    }
 }

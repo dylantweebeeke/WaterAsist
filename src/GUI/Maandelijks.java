@@ -10,7 +10,7 @@ import java.awt.event.ComponentEvent;
 public class Maandelijks extends JFrame{
     private JButton homeButton3;
     private JButton instellingenButton;
-    private JPanel Maandelijksview;
+    public JPanel Maandelijksview;
 
     public Maandelijks() {
         homeButton3.addActionListener(new ActionListener() {
