@@ -23,6 +23,17 @@ public class Maandelijks extends JFrame{
                 System.out.println("New window opened!");
             }
         });
+
+        instellingenButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                Component component = (Component) e.getSource();
+                JFrame frame = (JFrame) SwingUtilities.getRoot(component);
+                frame.setContentPane(new SettingsScreen().SettingsPanel);
+                frame.setVisible(true);
+                System.out.println("New window opened!");
+            }
+        });
     }
 
     public static void main(String[] args) {
