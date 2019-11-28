@@ -73,20 +73,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Application.startupscherm">
-    <configuration name="Dagelijks" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="GUI.Dagelijks" />
-      <module name="waterAssist" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="GUI.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
+  <component name="RunManager" selected="Application.LoginScreen">
     <configuration name="LoginScreen" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="GUI.LoginScreen" />
       <module name="waterAssist" />
@@ -126,6 +113,19 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="Wekelijks" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="GUI.Wekelijks" />
+      <module name="waterAssist" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="GUI.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="startupscherm" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="GUI.startupscherm" />
       <module name="waterAssist" />
@@ -141,11 +141,11 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.startupscherm" />
-        <item itemvalue="Application.Dagelijks" />
         <item itemvalue="Application.LoginScreen" />
+        <item itemvalue="Application.startupscherm" />
         <item itemvalue="Application.RegisterScreen" />
         <item itemvalue="Application.SettingsScreen" />
+        <item itemvalue="Application.Wekelijks" />
       </list>
     </recent_temporary>
   </component>
@@ -165,7 +165,7 @@
       <workItem from="1574249217200" duration="1173000" />
       <workItem from="1574327986959" duration="6539000" />
       <workItem from="1574333845802" duration="8764000" />
-      <workItem from="1574932930264" duration="3758000" />
+      <workItem from="1574932930264" duration="3313000" />
     </task>
     <servers />
   </component>
