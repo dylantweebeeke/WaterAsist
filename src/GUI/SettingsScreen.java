@@ -1,18 +1,20 @@
 package GUI;
 
 import javax.swing.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 
-public class RegisterScreen extends  JFrame {
-    public JPanel RegisterPanel;
+public class SettingsScreen {
     private JTextField UsernameField;
-    private JButton LoginButton;
     private JTextField MailField;
+    private JButton HomeButton;
+    private JTextField DagelijksField;
+    private JTextField WeekelijksField;
+    private JTextField MaandelijksField;
+    private JPanel SettingsPanel;
+    private JButton saveButton;
 
     public static void main(String args[]) throws ClassNotFoundException, UnsupportedLookAndFeelException, InstantiationException, IllegalAccessException {
-        JFrame frame = new JFrame("Register");
-        frame.setContentPane(new RegisterScreen().RegisterPanel);
+        JFrame frame = new JFrame("Settings");
+        frame.setContentPane(new SettingsScreen().SettingsPanel);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.pack();
         frame.setVisible(true);
