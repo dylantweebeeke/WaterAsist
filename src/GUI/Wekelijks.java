@@ -59,4 +59,18 @@ public class Wekelijks extends JFrame{
 
         frame.setVisible(true);
     }
+
+    private void createUIComponents() {
+        //loading/resizing/linking image to an button
+        ImageIcon ii = new ImageIcon("img/settingsLogo.png");
+        Image img = ii.getImage();
+        Image newImg = img.getScaledInstance(50,50, Image.SCALE_SMOOTH);
+        ii = new ImageIcon(newImg);
+        instellingenButton = new JButton(ii);
+
+        //no opacity background and remove border
+        instellingenButton.setBackground(new Color(0,0,0,0));
+        instellingenButton.setBorder(BorderFactory.createEmptyBorder(4,4,4,4));
+        instellingenButton.setContentAreaFilled(false);
+    }
 }
