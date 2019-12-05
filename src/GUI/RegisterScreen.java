@@ -6,23 +6,75 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.ComponentAdapter;
 import java.awt.event.ComponentEvent;
+import java.sql.*;
 
 public class RegisterScreen extends  JFrame {
     public JPanel RegisterPanel;
-    private JTextField UsernameField;
+    private JTextField passwordField;
     private JButton RegisterButton;
-    private JTextField MailField;
+    private JTextField mailField;
     private JButton terugButton;
+    private JTextField usernameField;
+    //JDBC driver name and database URL
+    static final String JDBC_DRIVER = "com.mysql.jdbc.Driver";
+    static final String DB_URL = "jdbc:mysql://127.0.0.1/waterassist";
+    //DB credentials
+    static final String USER = "root";
+    static final String PASS = "Welkom01";
 
     public RegisterScreen() {
         RegisterButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                Component component = (Component) e.getSource();
-                JFrame frame = (JFrame) SwingUtilities.getRoot(component);
-                frame.setContentPane(new homeScreen().homeView);
-                frame.setVisible(true);
-                System.out.println("New window opened!");
+                Connection conn = null;
+                Statement stmt = null;
+                try {
+                    //getting input field value from username and email
+                    String username = usernameField.getText();
+                    String password = passwordField.getText();
+                    String email = mailField.getText();
+                    //setting driver
+                    Class.forName(JDBC_DRIVER);
+                    //create connection
+                    System.out.println("Connecting to a database...");
+                    conn = DriverManager.getConnection(DB_URL,USER,PASS);
+                    System.out.println("Connected database succesfully...");
+                    //creating sql statement specific for this function
+                    System.out.println("creating statement...");
+                    stmt = conn.createStatement();
+                    String sql = "INSERT INTO gebruiker(gebruikersnr,email,wachtwoord,username) VALUES ('3', '" + email + "', '" + password + "', '" + username + "');";
+                    PreparedStatement statement = conn.prepareStatement(sql);
+                    statement.executeUpdate();
+                    System.out.println("Inserted records into the table...");
+                    //redirecting to the startup page
+                    Component component = (Component) e.getSource();
+                    JFrame frame = (JFrame) SwingUtilities.getRoot(component);
+                    frame.setContentPane(new startupscherm().startupView);
+                    frame.setVisible(true);
+                    System.out.println("New window opened!");
+                    //handling all the exception and throws
+                } catch (SQLException es) {
+                    System.out.println("Problem: ");
+                    es.printStackTrace();
+                } catch (Exception ex){
+                    ex.printStackTrace();
+                } finally {
+                    try{
+                        if(stmt != null){
+                            conn.close();
+                        }
+                    } catch (SQLException se){
+                        //DO NOTHING
+                    }
+                    try{
+                        if(conn != null){
+                            conn.close();
+                        }
+                    }catch (SQLException se){
+                        se.printStackTrace();
+                    }
+                    System.out.println("Goodbye!");
+                }
             }
         });
 
