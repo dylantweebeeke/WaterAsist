@@ -62,6 +62,9 @@
     <property name="settings.editor.selected.configurable" value="configurable.group.tools" />
   </component>
   <component name="RecentsManager">
+    <key name="CreateClassDialog.RecentsKey">
+      <recent name="" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/src/GUI" />
     </key>
@@ -78,7 +81,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Application.LoginScreen">
+  <component name="RunManager" selected="Application.Main">
     <configuration name="Dagelijks" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="GUI.Dagelijks" />
       <module name="waterAssist" />
@@ -105,15 +108,9 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="RegisterScreen" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="GUI.RegisterScreen" />
+    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="Main" />
       <module name="waterAssist" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="GUI.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -146,11 +143,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.Main" />
         <item itemvalue="Application.LoginScreen" />
         <item itemvalue="Application.startupscherm" />
         <item itemvalue="Application.Dagelijks" />
         <item itemvalue="Application.SettingsScreen" />
-        <item itemvalue="Application.RegisterScreen" />
       </list>
     </recent_temporary>
   </component>
@@ -171,7 +168,11 @@
       <workItem from="1574327986959" duration="6539000" />
       <workItem from="1574333845802" duration="8764000" />
       <workItem from="1574932930264" duration="3313000" />
-      <workItem from="1575546878795" duration="8516000" />
+      <workItem from="1575546878795" duration="8682000" />
+      <workItem from="1575971714634" duration="571000" />
+      <workItem from="1576050598435" duration="5194000" />
+      <workItem from="1576144514239" duration="9877000" />
+      <workItem from="1576620497543" duration="2404000" />
     </task>
     <servers />
   </component>

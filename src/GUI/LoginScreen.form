@@ -19,13 +19,13 @@
           <text value="U kunt hier inloggen met uw gebruikersnaam"/>
         </properties>
       </component>
-      <component id="e0a36" class="javax.swing.JLabel">
+      <component id="e0a36" class="javax.swing.JLabel" binding="loginLabel">
         <constraints>
           <grid row="0" column="0" row-span="1" col-span="2" vsize-policy="0" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
         </constraints>
         <properties>
           <font size="24" style="1"/>
-          <text value="Login Screen"/>
+          <text value="Inloggen"/>
         </properties>
       </component>
       <component id="8a8bd" class="javax.swing.JTextField" binding="usernameTextfield">
@@ -42,7 +42,7 @@
         </constraints>
         <properties>
           <font size="16"/>
-          <text value="Login"/>
+          <text value="Inloggen"/>
         </properties>
       </component>
       <hspacer id="2090b">
@@ -58,7 +58,7 @@
           <text value=""/>
         </properties>
       </component>
-      <component id="ae0c5" class="javax.swing.JTextField" binding="passwordTextfield">
+      <component id="104e5" class="javax.swing.JPasswordField" binding="passwordTextfield">
         <constraints>
           <grid row="3" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
             <preferred-size width="150" height="-1"/>

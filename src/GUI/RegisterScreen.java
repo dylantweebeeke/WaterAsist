@@ -42,7 +42,7 @@ public class RegisterScreen extends  JFrame {
                     //creating sql statement specific for this function
                     System.out.println("creating statement...");
                     stmt = conn.createStatement();
-                    String sql = "INSERT INTO gebruiker(gebruikersnr,email,wachtwoord,username) VALUES ('3', '" + email + "', '" + password + "', '" + username + "');";
+                    String sql = "INSERT INTO gebruiker(gebruikersnr,email,wachtwoord,username) VALUES ('4', '" + email + "', '" + password + "', '" + username + "');";
                     PreparedStatement statement = conn.prepareStatement(sql);
                     statement.executeUpdate();
                     System.out.println("Inserted records into the table...");
