@@ -1,10 +1,14 @@
 package GUI;
 
 import javax.swing.*;
+import javax.swing.border.Border;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.Calendar;
+import java.util.Date;
 
 public class homeScreen extends JFrame {
     private JButton wekelijksButton;
@@ -15,17 +19,27 @@ public class homeScreen extends JFrame {
     private JButton dagelijksVerbruikButton;
     private JButton settingsButton;
     private JLabel greetingLabel;
-    public User loggedInUser;
+    private User loggedInUser;
 
-    public homeScreen(User loggedInUser) {
+    public homeScreen(User loggedInUser){
         this.loggedInUser = loggedInUser;
+
+        Usage usage = new Usage();
+        usage.getUsage(loggedInUser.getGebruikersnr(), getDateInRightFormat());
+        Limit limit = new Limit();
+        limit.getLimit(loggedInUser.getGebruikersnr(),getDateInRightFormat());
+        System.out.println(loggedInUser.getGebruikersnr());
+
+        System.out.println(limit.getDaglimiet());
+        subTitleText.setText(getPercentageUsed(usage.getTotalUsage(),limit.getDaglimiet()));
 
         dagelijksVerbruikButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+                Dagelijks dagelijks = new Dagelijks(loggedInUser);
                 Component component = (Component) e.getSource();
                 JFrame frame = (JFrame) SwingUtilities.getRoot(component);
-                frame.setContentPane(new Dagelijks(loggedInUser).Dagelijksview);
+                frame.setContentPane(dagelijks.Dagelijksview);
                 frame.setVisible(true);
                 System.out.println("New window opened!");
             }
@@ -64,7 +78,7 @@ public class homeScreen extends JFrame {
             }
         });
 
-        greetingLabel.setText(getGreeting() + " , " + loggedInUser.getUsername());
+        greetingLabel.setText(getGreeting() + " , " + this.loggedInUser.getUsername());
     }
 
     private void createUIComponents() {
@@ -88,5 +102,24 @@ public class homeScreen extends JFrame {
         else if(timeOfDay >= 12 && timeOfDay <= 17) greeting = "goedenmiddag";
         else if(timeOfDay >= 17 && timeOfDay <= 24) greeting = "goedenavond";
         return greeting;
+    }
+
+    private String getDateInRightFormat()  {
+        String pattern = "yyyy-MM-dd";
+        SimpleDateFormat simpleDateFormat = new SimpleDateFormat(pattern);
+        String date = simpleDateFormat.format(new Date());
+        System.out.println(date);
+        return date;
+    }
+
+    public String getPercentageUsed(int part, int total){
+        String usage = "";
+        if(total == 0){
+            usage = "U heeft nog geen limiet ingestelt, U kunt deze instellen bij de instellingen";
+        } else if (total > 0){
+            int result = part * 100 / total;
+            usage = "U heeft op dit moment " + result + "% van uw daglimiet verbruikt.";
+        }
+        return usage;
     }
 }

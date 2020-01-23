@@ -3,6 +3,7 @@ package GUI;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
+import java.sql.*;
 
 public class LoginScreen {
     public JPanel LoginPanel;
@@ -13,6 +14,7 @@ public class LoginScreen {
     private JLabel loginLabel;
     private boolean succeeded;
     private User user;
+    private int gebruikersnr;
     //JDBC driver name and database URL
     static final String JDBC_DRIVER = "com.mysql.jdbc.Driver";
     static final String DB_URL = "jdbc:mysql://127.0.0.1/waterassist";
@@ -31,11 +33,12 @@ public class LoginScreen {
                     succeeded = true;
                     user = new User();
                     user.setUsername(username);
+                    user.setPassword(password);
+                    user.setGebruikersnr(getUserID(username));
                     Component component = (Component) e.getSource();
                     JFrame frame = (JFrame) SwingUtilities.getRoot(component);
                     frame.setContentPane(new homeScreen(user).homeView);
                     frame.setVisible(true);
-                    System.out.println("New window opened!");
                 } else {
                     JOptionPane.showMessageDialog(null, "Gebruikersnaam of wachtwoord is niet correct.");
                     usernameTextfield.setText("");
@@ -65,11 +68,12 @@ public class LoginScreen {
                     succeeded = true;
                     user = new User();
                     user.setUsername(username);
+                    user.setPassword(password);
+                    user.setGebruikersnr(getUserID(username));
                     Component component = (Component) e.getSource();
                     JFrame frame = (JFrame) SwingUtilities.getRoot(component);
                     frame.setContentPane(new homeScreen(user).homeView);
                     frame.setVisible(true);
-                    System.out.println("New window opened!");
                 } else {
                     JOptionPane.showMessageDialog(null, "Gebruikersnaam of wachtwoord is niet correct.");
                     usernameTextfield.setText("");
@@ -86,6 +90,57 @@ public class LoginScreen {
 
     public User getUser(){
         return this.user;
+    }
+
+    public int getUserID(String username){
+        Connection conn = null;
+        Statement stmt = null;
+        String nameuser = "";
+        String wordpass = "";
+        try {
+            //setting driver
+            Class.forName(JDBC_DRIVER);
+            //create connection
+            System.out.println("Connecting to a database...");
+            conn = DriverManager.getConnection(DB_URL,USER,PASS);
+            System.out.println("Connected database succesfully...");
+            //creating sql statement specific for this function
+            System.out.println("creating statement...");
+            stmt = conn.createStatement();
+            String sql = "SELECT * FROM gebruiker WHERE username=?";
+            PreparedStatement statement = conn.prepareStatement(sql);
+            //inserting textfield value into the statement
+            statement.setString(1, username);
+            //getting the result set
+            ResultSet rs = statement.executeQuery();
+            //checking if the input and DB data are the same and then returning true
+            if (rs.next()){
+                gebruikersnr = rs.getInt("gebruikersnr");
+            }
+            //handling all the exception and throws
+        } catch (SQLException es) {
+            System.out.println("Problem: ");
+            es.printStackTrace();
+        } catch (Exception ex){
+            ex.printStackTrace();
+        } finally {
+            try{
+                if(stmt != null){
+                    conn.close();
+                }
+            } catch (SQLException se){
+                //DO NOTHING
+            }
+            try{
+                if(conn != null){
+                    conn.close();
+                }
+            }catch (SQLException se){
+                se.printStackTrace();
+            }
+            System.out.println("Goodbye!");
+        }
+        return gebruikersnr;
     }
 
     private void createUIComponents() {

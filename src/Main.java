@@ -6,11 +6,12 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ComponentAdapter;
 import java.awt.event.ComponentEvent;
+import java.sql.SQLOutput;
 
 public class Main {
     public static void main(String[] args) {
         //creating new Jframe
-        JFrame frame = new JFrame("Homescreen");
+        JFrame frame = new JFrame("Water Assist");
         frame.setContentPane(new startupscherm().startupView);
 
         //Making the window able to close

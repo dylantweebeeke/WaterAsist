@@ -1,7 +1,6 @@
 package GUI;
 
-import javax.swing.*;
-import java.awt.*;
+
 import java.sql.*;
 
 public class Login {
@@ -15,6 +14,8 @@ public class Login {
     public static boolean authenticate(String username, String password){
         Connection conn = null;
         Statement stmt = null;
+        String nameuser = "";
+        String wordpass = "";
         try {
             //setting driver
             Class.forName(JDBC_DRIVER);
@@ -32,12 +33,10 @@ public class Login {
             statement.setString(2, password);
             //getting the result set
             ResultSet rs = statement.executeQuery();
-            //checking if the input and DB data are the same and then linking to new screen
+            //checking if the input and DB data are the same and then returning true
             if (rs.next()){
-                return true;
-            } else {  //if value and DB data are not the same then give an error msg to the user
-                JOptionPane.showMessageDialog(null, "Username is not correct!");
-                return false;
+                nameuser = rs.getString("username");
+                wordpass = rs.getString("wachtwoord");
             }
             //handling all the exception and throws
         } catch (SQLException es) {
@@ -62,7 +61,14 @@ public class Login {
             }
             System.out.println("Goodbye!");
         }
-
-        return false;
+        if (nameuser.equals(username) && wordpass.equals(password)){
+            return true;
+        } else return false;
     }
+
+//    public static boolean authenticate(String username, String password){
+//        if(this.username.equals(username) && this.password.equals(password)){
+//            return true;
+//        } else return false;
+//    }
 }

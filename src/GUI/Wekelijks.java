@@ -6,15 +6,69 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.ComponentAdapter;
 import java.awt.event.ComponentEvent;
+import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.Date;
+import java.util.GregorianCalendar;
 
 public class Wekelijks extends JFrame{
     private JButton homeButton;
     private JButton instellingenButton;
     public JPanel Wekelijksview;
+    private JPanel weekPanel;
+    private JLabel weeklyLimitLabel;
+    private JScrollPane scroll;
     private User loggedInUser;
 
     public Wekelijks(User loggedInUser) {
         this.loggedInUser = loggedInUser;
+
+        weekPanel.setLayout(new BoxLayout(weekPanel, BoxLayout.Y_AXIS));
+
+        JPanel panel = new JPanel();
+        GridLayout layout = new GridLayout(0,4);
+        panel.setLayout(layout);
+        panel.setSize(800,700);
+        panel.setBackground(new Color(56,149,211));
+
+        ArrayList<Usage> weekUsage = getWeeklyUsage();
+        for (int i = 0; i < weekUsage.size(); i++){
+            String txt = "week" + weekUsage.get(i).getWeeknr();
+            JLabel label = new JLabel(txt);
+            label.setFont(label.getFont().deriveFont(16.0f));
+            String txt1 = weekUsage.get(i).getDate().toString().substring(0,4);
+            JLabel label1 = new JLabel(txt1);
+            label1.setFont(label1.getFont().deriveFont(16.0f));
+            String txt2 = Integer.toString(weekUsage.get(i).getDaggebruik());
+            JLabel label2 = new JLabel(txt2);
+            label2.setFont(label2.getFont().deriveFont(16.0f));
+            String txt3 = "Liter.";
+            JLabel label3 = new JLabel(txt3);
+            label3.setFont(label3.getFont().deriveFont(16.0f));
+            panel.add(label);
+            panel.add(label1);
+            panel.add(label2);
+            panel.add(label3);
+        }
+
+        scroll = new JScrollPane(panel);
+        scroll.setBounds(50,50,200,500);
+        scroll.setHorizontalScrollBarPolicy(JScrollPane.HORIZONTAL_SCROLLBAR_NEVER);
+        scroll.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_ALWAYS);
+        scroll.setPreferredSize(new Dimension(500,500));
+        weekPanel.add(scroll);
+
+        Limit limit = new Limit();
+        limit.getWeeklyLimit(loggedInUser,getWeekNumber());
+        String percentage = "";
+        for(int j = 0; j < weekUsage.size(); j++){
+            if (weekUsage.get(j).getWeeknr() == getWeekNumber()){
+                System.out.println(weekUsage.get(j).getDaggebruik());
+                System.out.println(limit.getWeeklimiet());
+                weeklyLimitLabel.setText(getPercentageUsed(weekUsage.get(j).getDaggebruik(),limit.getWeeklimiet()));
+            }
+        }
+
         homeButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -60,5 +114,32 @@ public class Wekelijks extends JFrame{
         homeButton.setBackground(new Color(0,0,0,0));
         homeButton.setBorder(BorderFactory.createEmptyBorder(4,4,4,4));
         homeButton.setContentAreaFilled(false);
+    }
+
+    public  ArrayList<Usage> getWeeklyUsage(){
+        Usage usage = new Usage();
+        return (ArrayList<Usage>) usage.getUsageTotalByWeek(loggedInUser.getGebruikersnr());
+    }
+
+    public String getPercentageUsed(int part, int total){
+        String usage = "";
+        if(total == 0){
+            usage = "U heeft nog geen limiet ingestelt, U kunt deze instellen bij de instellingen";
+        } else if (total > 0){
+            int result = part * 100 / total;
+            usage = "U heeft op dit moment " + result + "% van uw weeklimiet verbruikt.";
+        }
+        return usage;
+    }
+
+    /**
+     * get the number of the current week based on the current date
+     * @return current week number
+     */
+    public static int getWeekNumber(){
+        Calendar cal = new GregorianCalendar();
+        Date date = new Date();
+        cal.setTime(date);
+        return cal.get(Calendar.WEEK_OF_YEAR);
     }
 }
