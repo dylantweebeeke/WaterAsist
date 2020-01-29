@@ -6,7 +6,7 @@ import java.util.ArrayList;
 public class Usage {
     private int dagwaternr;
     private int datum;
-    private int daggebruik;
+    private double daggebruik;
     private int sensornr;
     private int total;
     private int weeknr;
@@ -28,7 +28,7 @@ public class Usage {
         return this.datum;
     }
 
-    public int getDaggebruik(){
+    public double getDaggebruik(){
         return this.daggebruik;
     }
 
@@ -46,7 +46,7 @@ public class Usage {
         this.datum = datum;
     }
 
-    public void setDaggebruik(int daggebruik){
+    public void setDaggebruik(double daggebruik){
         this.daggebruik = daggebruik;
     }
 
@@ -91,7 +91,8 @@ public class Usage {
             //checking if the input and DB data are the same and then linking to new screen
             while(rs.next()){
                 setDatum(rs.getInt("datum"));
-                this.total += rs.getInt("daggebruik");
+                this.total += rs.getDouble("daggebruik");
+                System.out.println(rs.getDouble("test: " + "daggebruik"));
                 setSensornr(rs.getInt("sensornr"));
             }
         } catch (SQLException es) {
@@ -147,7 +148,7 @@ public class Usage {
             while(rs.next()){
                 Usage usage = new Usage();
                 usage.setDate(rs.getDate("datum"));
-                usage.setDaggebruik(rs.getInt("totaalGebruik"));
+                usage.setDaggebruik(rs.getDouble("totaalGebruik"));
                 listOfUsage.add(usage);
             }
         } catch (SQLException es) {
@@ -205,7 +206,7 @@ public class Usage {
             while(rs.next()){
                 Usage usage = new Usage();
                 usage.setWeeknr(rs.getInt("weeknr"));
-                usage.setDaggebruik(rs.getInt("totaalWeekGebruik"));
+                usage.setDaggebruik(rs.getDouble("totaalWeekGebruik"));
                 usage.setDate(rs.getDate("datum"));
                 listOfUsage.add(usage);
             }
@@ -259,7 +260,7 @@ public class Usage {
             while(rs.next()){
                 Usage usage = new Usage();
                 usage.setMaandnr(rs.getInt("maandnr"));
-                usage.setDaggebruik(rs.getInt("totaalMaandGebruik"));
+                usage.setDaggebruik(rs.getDouble("totaalMaandGebruik"));
                 usage.setDate(rs.getDate("datum"));
                 listOfUsage.add(usage);
             }

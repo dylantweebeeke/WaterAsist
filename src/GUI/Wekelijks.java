@@ -39,7 +39,7 @@ public class Wekelijks extends JFrame{
             String txt1 = weekUsage.get(i).getDate().toString().substring(0,4);
             JLabel label1 = new JLabel(txt1);
             label1.setFont(label1.getFont().deriveFont(16.0f));
-            String txt2 = Integer.toString(weekUsage.get(i).getDaggebruik());
+            String txt2 = Double.toString(weekUsage.get(i).getDaggebruik());
             JLabel label2 = new JLabel(txt2);
             label2.setFont(label2.getFont().deriveFont(16.0f));
             String txt3 = "Liter.";
@@ -121,13 +121,13 @@ public class Wekelijks extends JFrame{
         return (ArrayList<Usage>) usage.getUsageTotalByWeek(loggedInUser.getGebruikersnr());
     }
 
-    public String getPercentageUsed(int part, int total){
+    public String getPercentageUsed(double part, int total){
         String usage = "";
         if(total == 0){
             usage = "U heeft nog geen limiet ingestelt, U kunt deze instellen bij de instellingen";
         } else if (total > 0){
-            int result = part * 100 / total;
-            usage = "U heeft op dit moment " + result + "% van uw weeklimiet verbruikt.";
+            double result = part * 100 / total;
+            usage = String.format("U heeft op dit moment %.2f %% van uw week limiet verbruikt.", result);
         }
         return usage;
     }

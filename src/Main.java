@@ -1,3 +1,4 @@
+import GUI.ImagePanel;
 import GUI.Login;
 import GUI.LoginScreen;
 import GUI.startupscherm;
@@ -10,6 +11,8 @@ import java.sql.SQLOutput;
 
 public class Main {
     public static void main(String[] args) {
+        ImagePanel panel = new ImagePanel(new ImageIcon("img/background.jpg").getImage());
+
         //creating new Jframe
         JFrame frame = new JFrame("Water Assist");
         frame.setContentPane(new startupscherm().startupView);
@@ -19,7 +22,7 @@ public class Main {
         frame.pack();
 
         //defining minimum and maximum size of the window
-        frame.setMaximumSize(new Dimension(440,500));
+        frame.setMaximumSize(new Dimension(900,900));
         frame.addComponentListener(new ComponentAdapter() {
             public void componentResized(ComponentEvent evt) {
                 Dimension size = frame.getSize();
@@ -32,7 +35,9 @@ public class Main {
                 }
             }
         });
-        frame.setSize(1100, 1100);
+        frame.setSize(900, 900);
+        //Setting the frame to not be able to resize
+        frame.setResizable(false);
         //setting the frame to be visible
         frame.setVisible(true);
     }

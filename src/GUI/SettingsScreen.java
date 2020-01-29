@@ -26,6 +26,10 @@ public class SettingsScreen {
     private JLabel currentDailyLimit;
     private JLabel currentWeekylLimit;
     private JLabel currentMonthlyLimit;
+
+    private ImageIcon bg;
+    private JLabel bgImage;
+
     private User loggedInUser;
     //JDBC driver name and database URL
     static final String JDBC_DRIVER = "com.mysql.jdbc.Driver";
@@ -49,7 +53,6 @@ public class SettingsScreen {
         limit.getMonthlyLimit(loggedInUser,settingsController.getMonthNumber());
         String monthLimitText = "Uw huidige limiet is "  + limit.getMaandlimiet();
         currentMonthlyLimit.setText(monthLimitText);
-
 
         HomeButton.addActionListener(new ActionListener() {
             @Override

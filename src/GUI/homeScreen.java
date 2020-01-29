@@ -19,6 +19,8 @@ public class homeScreen extends JFrame {
     private JButton dagelijksVerbruikButton;
     private JButton settingsButton;
     private JLabel greetingLabel;
+    private JLabel backgroundLabel;
+    public JPanel bgPanel;
     private User loggedInUser;
 
     public homeScreen(User loggedInUser){

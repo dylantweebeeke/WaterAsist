@@ -68,7 +68,6 @@ public class Maandelijks extends JFrame{
 
         Limit limit = new Limit();
         limit.getMonthlyLimit(loggedInUser,getMonthNumber());
-        String percentage = "";
         for(int j = 0; j < monthlyUsage.size(); j++){
             if (monthlyUsage.get(j).getMaandnr() == getMonthNumber()){
                 System.out.println(monthlyUsage.get(j).getDaggebruik());
@@ -174,13 +173,13 @@ public class Maandelijks extends JFrame{
         return month;
     }
 
-    public String getPercentageUsed(int part, int total){
+    public String getPercentageUsed(double part, int total){
         String usage = "";
         if(total == 0){
             usage = "U heeft nog geen limiet ingestelt, U kunt deze instellen bij de instellingen";
         } else if (total > 0){
-            int result = part * 100 / total;
-            usage = "U heeft op dit moment " + result + "% van uw maandlimiet verbruikt.";
+            double result = part * 100 / total;
+            usage = String.format("U heeft op dit moment %.2f %% van uw maand limiet verbruikt.", result);
         }
         return usage;
     }
